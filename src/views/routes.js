@@ -177,11 +177,11 @@ const routes = [
     renderer: (params = {}) => <PortfolioGridView {...params} />,
   },
   {
-    path: '/company-terms',
+    path: '/terms',
     renderer: (params = {}) => <CompanyTermsView {...params} />,
   },
   {
-    path: '/contact-sidebar-map',
+    path: '/contact',
     renderer: (params = {}) => <ContactPageSidebarMapView {...params} />,
   },
   {

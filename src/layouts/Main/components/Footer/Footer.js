@@ -1,14 +1,15 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-// import Button from '@mui/material/Button';
-// import Link from '@mui/material/Link';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const theme = useTheme();
   const { mode } = theme.palette;
+  const linkColor = 'text.secondary';
 
   return (
     <Grid container spacing={2}>
@@ -38,43 +39,46 @@ const Footer = () => {
               width={1}
             />
           </Box>
-          {/* <Box display="flex" flexWrap={'wrap'} alignItems={'center'}>
+          <Box display="flex" flexWrap={'wrap'} alignItems={'center'}>
             <Box marginTop={1} marginRight={2}>
               <Link
-                underline="none"
-                component="a"
-                href="/"
-                color="text.primary"
-                variant={'subtitle2'}
+                to="/terms"
+                style={{ textDecoration: 'none' }}
               >
-                Home
+                <Typography
+                  color={linkColor}
+                  variant={'subtitle2'}
+                >
+                  {'Terms & Conditions'}
+                </Typography>
               </Link>
             </Box>
             <Box marginTop={1} marginRight={2}>
               <Link
-                underline="none"
-                component="a"
-                href="https://thefront.maccarianagency.com/docs/introduction"
-                target={'blank'}
-                color="text.primary"
-                variant={'subtitle2'}
+                to="/terms"
+                style={{ textDecoration: 'none' }}
               >
-                Documentation
+                <Typography
+                  color={linkColor}
+                  variant={'subtitle2'}
+                >
+                  {'Privacy Policy'}
+                </Typography>
               </Link>
             </Box>
             <Box marginTop={1}>
-              <Button
-                variant="outlined"
-                color="primary"
-                component="a"
-                target="blank"
-                href="https://mui.com/store/items/the-front-landing-page/"
-                size="small"
-              >
-                Purchase now
-              </Button>
+              <Link to="/contact">
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  component="a"
+                  size="small"
+                >
+                  Contact Us
+                </Button>
+              </Link>
             </Box>
-          </Box> */}
+          </Box>
         </Box>
       </Grid>
       <Grid item xs={12}>
@@ -98,7 +102,7 @@ const Footer = () => {
           experience and for marketing purposes.
         </Typography>
       </Grid>
-    </Grid>
+    </Grid >
   );
 };
 

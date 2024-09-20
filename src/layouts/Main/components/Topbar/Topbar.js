@@ -69,20 +69,10 @@ const Topbar = ({ onSidebarOpen, colorInvert = false }) => {
           </Link>
         </Box>
         <Box marginLeft={4}>
-          <Link to={'/company-terms'} style={{ textDecoration: 'none' }}>
+          <Link to={'/contact'} style={{ textDecoration: 'none' }}>
             <Typography
               color={linkColor}
-              fontWeight={window.location.pathname == '/company-terms' ? 700 : 400}
-            >
-              {'Turms & Conditions'}
-            </Typography>
-          </Link>
-        </Box>
-        <Box marginLeft={4}>
-          <Link to={'/contact-sidebar-map'} style={{ textDecoration: 'none' }}>
-            <Typography
-              color={linkColor}
-              fontWeight={window.location.pathname == '/contact-sidebar-map' ? 700 : 400}
+              fontWeight={window.location.pathname == '/contact' ? 700 : 400}
             >
               {'Contact Us'}
             </Typography>
