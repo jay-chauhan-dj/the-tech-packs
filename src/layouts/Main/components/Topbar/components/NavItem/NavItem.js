@@ -133,7 +133,7 @@ const NavItem = ({ title, id, items, colorInvert = false }) => {
 NavItem.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  items: PropTypes.array.isRequired,
+  items: PropTypes.array,
   colorInvert: PropTypes.bool,
 };
 

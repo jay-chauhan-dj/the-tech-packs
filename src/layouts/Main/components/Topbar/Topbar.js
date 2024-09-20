@@ -4,21 +4,14 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { alpha, useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
+import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 
-import { NavItem } from './components';
-
-const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
+const Topbar = ({ onSidebarOpen, colorInvert = false }) => {
   const theme = useTheme();
   const { mode } = theme.palette;
-  const {
-    landings: landingPages,
-    secondary: secondaryPages,
-    company: companyPages,
-    account: accountPages,
-    portfolio: portfolioPages,
-    blog: blogPages,
-  } = pages;
 
+  const linkColor = colorInvert ? 'common.white' : 'text.primary';
   return (
     <Box
       display={'flex'}
@@ -30,7 +23,7 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
         display={'flex'}
         component="a"
         href="/"
-        title="theFront"
+        title="The Tech Packs"
         width={{ xs: 100, md: 120 }}
       >
         <Box
@@ -46,52 +39,54 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
       </Box>
       <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
         <Box>
-          <NavItem
-            title={'Landings'}
-            id={'landing-pages'}
-            items={landingPages}
-            colorInvert={colorInvert}
-          />
+          <Link to={'/'} style={{ textDecoration: 'none' }}>
+            <Typography
+              color={linkColor}
+              fontWeight={window.location.pathname == '/' ? 700 : 400}
+            >
+              {'Home'}
+            </Typography>
+          </Link>
         </Box>
         <Box marginLeft={4}>
-          <NavItem
-            title={'Company'}
-            id={'company-pages'}
-            items={companyPages}
-            colorInvert={colorInvert}
-          />
+          <Link to={'/about'} style={{ textDecoration: 'none' }}>
+            <Typography
+              color={linkColor}
+              fontWeight={window.location.pathname == '/about' ? 700 : 400}
+            >
+              {'About Us'}
+            </Typography>
+          </Link>
         </Box>
         <Box marginLeft={4}>
-          <NavItem
-            title={'Account'}
-            id={'account-pages'}
-            items={accountPages}
-            colorInvert={colorInvert}
-          />
+          <Link to={'/pricing'} style={{ textDecoration: 'none' }}>
+            <Typography
+              color={linkColor}
+              fontWeight={window.location.pathname == '/pricing' ? 700 : 400}
+            >
+              {'Pricing'}
+            </Typography>
+          </Link>
         </Box>
         <Box marginLeft={4}>
-          <NavItem
-            title={'Pages'}
-            id={'secondary-pages'}
-            items={secondaryPages}
-            colorInvert={colorInvert}
-          />
+          <Link to={'/company-terms'} style={{ textDecoration: 'none' }}>
+            <Typography
+              color={linkColor}
+              fontWeight={window.location.pathname == '/company-terms' ? 700 : 400}
+            >
+              {'Turms & Conditions'}
+            </Typography>
+          </Link>
         </Box>
         <Box marginLeft={4}>
-          <NavItem
-            title={'Blog'}
-            id={'blog-pages'}
-            items={blogPages}
-            colorInvert={colorInvert}
-          />
-        </Box>
-        <Box marginLeft={4}>
-          <NavItem
-            title={'Portfolio'}
-            id={'portfolio-pages'}
-            items={portfolioPages}
-            colorInvert={colorInvert}
-          />
+          <Link to={'/contact-sidebar-map'} style={{ textDecoration: 'none' }}>
+            <Typography
+              color={linkColor}
+              fontWeight={window.location.pathname == '/contact-sidebar-map' ? 700 : 400}
+            >
+              {'Contact Us'}
+            </Typography>
+          </Link>
         </Box>
         <Box marginLeft={4}>
           <Button
@@ -99,7 +94,7 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
             color="primary"
             component="a"
             target="blank"
-            href="https://mui.com/store/items/the-front-landing-page/"
+            href="https://www.dj-jay.in"
             size="large"
           >
             Buy now
@@ -127,7 +122,6 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
 
 Topbar.propTypes = {
   onSidebarOpen: PropTypes.func,
-  pages: PropTypes.object,
   colorInvert: PropTypes.bool,
 };
 
